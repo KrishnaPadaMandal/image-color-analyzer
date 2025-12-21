@@ -1,5 +1,5 @@
 {
-  "name": "image-color-analyzer",
+  "name": "@krishnapadamandal/image-color-analyzer",
   "version": "1.0.0",
   "description": "Analyze images to find dominant colors and color distribution",
   "main": "src/index.js",
@@ -22,7 +22,7 @@
     "color-analysis",
     "image-processing"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Krishna>",
   "license": "MIT",
   "repository": {
     "type": "git",
