@@ -1,0 +1,7 @@
+# Create .gitignore
+echo node_modules/ > .gitignore
+echo .env >> .gitignore
+echo .DS_Store >> .gitignore
+echo uploads/ >> .gitignore
+echo *.log >> .gitignore
+echo coverage/ >> .gitignore
