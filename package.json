@@ -1,21 +1,20 @@
 {
   "name": "image-color-analyst",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Analyze images to find dominant colors and color distribution",
   "main": "src/index.js",
   "type": "commonjs",
   "bin": {
     "color-analyzer": "./bin/cli.js"
   },
-"scripts": {
-  "start": "node src/index.js",
-  "dev": "node examples/server.js",
-  "test": "jest --passWithNoTests",
-  "lint": "eslint src/",
-  "format": "prettier --write \"src/**/*.js\"",
-  "prepublishOnly": "npm test"
-},
-
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node examples/server.js",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint src/",
+    "format": "prettier --write \"src/**/*.js\"",
+    "prepublishOnly": "npm test"
+  },
   "keywords": [
     "image",
     "color",
