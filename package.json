@@ -1,6 +1,6 @@
 {
   "name": "@krishnapadamandal/image-color-analyzer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Analyze images to find dominant colors and color distribution",
   "main": "src/index.js",
   "type": "commonjs",
@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "node examples/server.js",
-   "test": "jest --passWithNoTests",
+    "test": "jest --passWithNoTests",
     "lint": "eslint src/",
     "format": "prettier --write \"src/**/*.js\"",
     "prepublishOnly": "npm test"
