@@ -1,6 +1,6 @@
 {
   "name": "@krishnapadamandal/image-color-analyzer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Analyze images to find dominant colors and color distribution",
   "main": "src/index.js",
   "type": "commonjs",
