@@ -1,6 +1,6 @@
 {
   "name": "image-color-analyst",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Analyze images to find dominant colors and color distribution",
   "main": "src/index.js",
   "type": "commonjs",
