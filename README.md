@@ -1,9 +1,4 @@
-Below is a **fully rewritten, professional, production-ready README.md** for your npm package.
-It is **clear, accurate, beginner-friendly, and aligned with your actual package name and API**.
 
-You can **copy-paste this directly** into your `README.md`.
-
----
 
 # Image Color Analyst 🎨
 
