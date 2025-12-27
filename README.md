@@ -21,3 +21,22 @@ npm install -g image-color-analyzer
 
 # Install as dependency for your project
 npm install image-color-analyzer
+
+# Example
+const multer = require("multer");
+const { analyze } = require("image-color-analyst");
+
+const app = express();
+const upload = multer({ dest: "uploads/" });
+
+app.post("/analyze", upload.single("image"), async (req, res) => {
+  try {
+    const result = await analyze(req.file.path, {
+      topColorsCount: 5,
+    });
+
+    res.json({ success: true, data: result });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
