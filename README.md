@@ -196,22 +196,7 @@ MIT © **Krishna Pada Mandal**
 
 ---
 
-## ⭐ Support & Contributions
 
-* Issues and feature requests are welcome
-* Contributions via pull requests are appreciated
-* If you like this package, don’t forget to ⭐ it on GitHub!
 
----
 
-### 🚀 Publishing Checklist (for Maintainers)
-
-```bash
-git add .
-git commit -m "Update README with full usage examples"
-npm version patch
-npm publish
-```
-
----
 
