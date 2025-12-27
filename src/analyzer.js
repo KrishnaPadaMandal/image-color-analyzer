@@ -81,9 +81,9 @@ async function analyzeImageColors(imagePath, options = {}) {
       };
       
       // Add color name if requested
-      if (includeNames) {
-        colorObj.name = getColorName(r, g, b);
-      }
+      // if (includeNames) {
+      //   colorObj.name = getColorName(r, g, b);
+      // }
       
       return colorObj;
     });
