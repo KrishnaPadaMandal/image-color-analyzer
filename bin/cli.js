@@ -7,19 +7,18 @@ const require = createRequire(import.meta.url);
 import { program } from 'commander';
 import chalk from 'chalk';
 import fs from 'fs';
-import path from 'path';
 
 // For local modules, still use require
 const { analyze, getDominantColor, getColorPalette } = require('../src/index');
 
 // Display banner
-console.log(
-  chalk.cyan(
-    '='.repeat(60) + '\n' +
-    '🎨  IMAGE COLOR ANALYZER  🎨\n' +
-    '='.repeat(60)
-  )
-);
+// console.log(
+//   chalk.cyan(
+//     '='.repeat(60) + '\n' +
+//     '🎨  IMAGE COLOR ANALYZER  🎨\n' +
+//     '='.repeat(60)
+//   )
+// );
 
 program
   .name('color-analyzer')
@@ -36,43 +35,43 @@ program
     try {
       // Check if file exists
       if (!fs.existsSync(imagePath)) {
-        console.error(chalk.red(`Error: File not found - ${imagePath}`));
+        // console.error(chalk.red(`Error: File not found - ${imagePath}`));
         process.exit(1);
       }
 
-      console.log(chalk.blue(`📷 Analyzing ${imagePath}...\n`));
+      // console.log(chalk.blue(`📷 Analyzing ${imagePath}...\n`));
       
       const result = await analyze(imagePath, {
         topColorsCount: parseInt(options.top)
       });
 
       if (options.output === 'json') {
-        console.log(JSON.stringify(result, null, 2));
+        // console.log(JSON.stringify(result, null, 2));
       } else if (options.output === 'simple') {
-        console.log(chalk.bold('🎨 Dominant Color:'));
-        console.log(`  ${result.dominantColor.hex} - ${result.dominantColor.name}`);
-        console.log(`  Percentage: ${result.dominantColor.percentage}%\n`);
+        // console.log(chalk.bold('🎨 Dominant Color:'));
+        // console.log(`  ${result.dominantColor.hex} - ${result.dominantColor.name}`);
+        // console.log(`  Percentage: ${result.dominantColor.percentage}%\n`);
         
-        console.log(chalk.bold('🏆 Top Colors:'));
+        // console.log(chalk.bold('🏆 Top Colors:'));
         result.topColors.forEach((color, index) => {
-          console.log(`  ${index + 1}. ${color.hex} - ${color.name} (${color.percentage}%)`);
+          // console.log(`  ${index + 1}. ${color.hex} - ${color.name} (${color.percentage}%)`);
         });
       } else {
         // Table format (default)
         console.log(chalk.bold('📊 Image Information:'));
-        console.log(`  Dimensions: ${result.imageInfo.width} × ${result.imageInfo.height}`);
-        console.log(`  Format: ${result.imageInfo.format}`);
-        console.log(`  Processing Time: ${result.processingTime}ms\n`);
+        // console.log(`  Dimensions: ${result.imageInfo.width} × ${result.imageInfo.height}`);
+        // console.log(`  Format: ${result.imageInfo.format}`);
+        // console.log(`  Processing Time: ${result.processingTime}ms\n`);
         
-        console.log(chalk.bold('🎨 Dominant Color:'));
-        console.log(chalk.bgHex(result.dominantColor.hex)('     '), 
-                   ` ${result.dominantColor.hex} - ${result.dominantColor.name}`);
-        console.log(`  RGB: ${result.dominantColor.rgb}`);
-        console.log(`  Percentage: ${result.dominantColor.percentage}%\n`);
+        // console.log(chalk.bold('🎨 Dominant Color:'));
+        // console.log(chalk.bgHex(result.dominantColor.hex)('     '), 
+        //            ` ${result.dominantColor.hex} - ${result.dominantColor.name}`);
+        // console.log(`  RGB: ${result.dominantColor.rgb}`);
+        // console.log(`  Percentage: ${result.dominantColor.percentage}%\n`);
         
-        console.log(chalk.bold('🏆 Top Colors:'));
-        console.log(chalk.cyan('  Rank  Color        Name        Percentage'));
-        console.log(chalk.cyan('  ────────────────────────────────────────'));
+        // console.log(chalk.bold('🏆 Top Colors:'));
+        // console.log(chalk.cyan('  Rank  Color        Name        Percentage'));
+        // console.log(chalk.cyan('  ────────────────────────────────────────'));
         
         result.topColors.forEach((color, index) => {
           const rank = (index + 1).toString().padEnd(5);
@@ -81,16 +80,16 @@ program
           const name = color.name.padEnd(12);
           const percentage = color.percentage.toFixed(2).padEnd(8);
           
-          console.log(`  ${rank} ${colorBlock} ${hex} ${name} ${percentage}%`);
+          // console.log(`  ${rank} ${colorBlock} ${hex} ${name} ${percentage}%`);
         });
         
-        console.log(`\n📈 Total unique colors: ${result.colorStats.totalColors}`);
+        // console.log(`\n📈 Total unique colors: ${result.colorStats.totalColors}`);
       }
 
       // Save to file if requested
       if (options.save) {
         fs.writeFileSync(options.save, JSON.stringify(result, null, 2));
-        console.log(chalk.green(`\n✅ Results saved to ${options.save}`));
+        // console.log(chalk.green(`\n✅ Results saved to ${options.save}`));
       }
 
     } catch (error) {
@@ -105,12 +104,12 @@ program
   .action(async (imagePath) => {
     try {
       const dominant = await getDominantColor(imagePath);
-      console.log(chalk.bgHex(dominant.hex)('     '), 
-                 chalk.bold(` ${dominant.hex} - ${dominant.name}`));
-      console.log(`RGB: ${dominant.rgb}`);
-      console.log(`Percentage: ${dominant.percentage}%`);
+      // console.log(chalk.bgHex(dominant.hex)('     '), 
+      //            chalk.bold(` ${dominant.hex} - ${dominant.name}`));
+      // console.log(`RGB: ${dominant.rgb}`);
+      // console.log(`Percentage: ${dominant.percentage}%`);
     } catch (error) {
-      console.error(chalk.red(`Error: ${error.message}`));
+      // console.error(chalk.red(`Error: ${error.message}`));
     }
   });
 
@@ -122,17 +121,17 @@ program
     try {
       const palette = await getColorPalette(imagePath, parseInt(options.colors));
       
-      console.log(chalk.bold(`🎨 Color Palette (${options.colors} colors):\n`));
+      // console.log(chalk.bold(`🎨 Color Palette (${options.colors} colors):\n`));
       
       palette.forEach((color, index) => {
         const swatch = chalk.bgHex(color.hex)('     ');
-        console.log(`${swatch} ${color.hex.padEnd(10)} ${color.name.padEnd(12)} ${color.percentage.toFixed(2)}%`);
+        // console.log(`${swatch} ${color.hex.padEnd(10)} ${color.name.padEnd(12)} ${color.percentage.toFixed(2)}%`);
       });
       
       // Generate CSS
-      console.log(chalk.bold('\n💅 CSS Variables:'));
+      // console.log(chalk.bold('\n💅 CSS Variables:'));
       palette.forEach((color, index) => {
-        console.log(`--color-${index + 1}: ${color.hex};`);
+        // console.log(`--color-${index + 1}: ${color.hex};`);
       });
       
     } catch (error) {

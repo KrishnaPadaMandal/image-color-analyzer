@@ -86,6 +86,6 @@ app.post('/analyze', upload.single('image'), async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📁 Upload endpoint: POST http://localhost:${PORT}/analyze`);
+  // console.log(`🚀 Server running on http://localhost:${PORT}`);
+  // console.log(`📁 Upload endpoint: POST http://localhost:${PORT}/analyze`);
 });
